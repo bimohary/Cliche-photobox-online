@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photobox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Cliche Photobox</h1>
+            <p class="description">Capture, preview, and manage your memories</p>
+        </header>
+
+        <div class="main-content">
+            <section class="camera-section">
+                <h2>Take a Photo</h2>
+                <div id="status-message" class="status-message" style="display: none;"></div>
+                
+                <div class="viewfinder">
+                    <video id="video" autoplay playsinline></video>
+                    <div class="viewfinder-overlay"></div>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                </div>
+
+                <div class="camera-controls">
+                    <button id="start-camera" class="btn-primary">
+                        <span>Start Camera</span>
+                    </button>
+                    <button id="stop-camera" class="btn-secondary" disabled>
+                        <span>Stop Camera</span>
+                    </button>
+                    <button id="switch-camera" class="btn-secondary" style="display: none;" disabled>
+                        <span>Switch Camera</span>
+                    </button>
+                </div>
+
+                <button id="capture-btn" class="btn-capture" disabled></button>
+
+                <div id="preview-controls" style="display: none; text-align: center;">
+                    <button id="save-photo" class="btn-primary">
+                        <span>Save Photo</span>
+                    </button>
+                    <button id="retake-photo" class="btn-secondary" style="margin-left: 10px;">
+                        <span>Retake</span>
+                    </button>
+                </div>
+
+                <div id="photo-preview" style="display: none; text-align: center; margin-top: 20px;">
+                    <img id="preview-image" src="" alt="Captured photo preview" style="max-width: 100%; border-radius: 8px;">
+                </div>
+            </section>
+
+            <section class="gallery-section">
+                <h2 class="gallery-title">My Photos</h2>
+                <div id="no-photos" style="text-align: center; padding: 40px;">
+                    <p>No photos yet. Capture some memories!</p>
+                </div>
+                <div id="photos-container" class="photos-grid"></div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <p>PhotoBox © 2023 | All your memories in one place</p>
+        </div>
+    </div>
+
+    <div id="preview-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="Preview of selected photo">
+            <div class="modal-controls">
+                <button id="download-photo" class="btn-primary">Download</button>
+                <button id="delete-photo" class="btn-secondary">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
